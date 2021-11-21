@@ -23,20 +23,22 @@ let zoomer = (function () {
       let magnified = document.querySelector("#img-2");
       style = magnified.style;
 
-      x = e.pageX - this.offsetLeft; //получаем точку входа мыши, вычисляя позицию страницы за вычетом смещения элемента
+      //получаем точку входа мыши, вычисляя позицию страницы за вычетом смещения элемента
+      x = e.pageX - this.offsetLeft;
       y = e.pageY - this.offsetTop;
 
+      //получаем исходный размер изображения и вычисляем процент, где находится наша мышь
       imgWidth = original.offsetWidth;
-      imgHeight = original.offsetHeight; //получаем исходный размер изображения и вычисляем процент, где находится наша мышь
+      imgHeight = original.offsetHeight;
       xPercent = (x / imgWidth) * 100;
       yPercent = (y / imgHeight) * 100;
 
-      //lets user scroll past right edge of image
+      //позволяет пользователю прокручивать за правый край изображения
       if (x > 0.01 * imgWidth) {
         xPercent += 0.15 * xPercent;
       }
 
-      //lets user scroll past bottom edge of image
+      //позволяет пользователю прокручивать за нижний край изображения
       if (y >= 0.01 * imgHeight) {
         yPercent += 0.15 * yPercent;
       }
@@ -44,7 +46,8 @@ let zoomer = (function () {
       style.backgroundPositionX = xPercent - 9 + "%"; //Устанавливаю горизонтальный фон увеличенного изображения
       style.backgroundPositionY = yPercent - 9 + "%"; //Устанавливаю вертикальный фон увеличенного изображения
 
-      style.left = x - 180 + "px"; // Перемещение увеличительного стекла движением мыши
+      // Перемещение увеличительного стекла движением мыши
+      style.left = x - 180 + "px";
       style.top = y - 180 + "px";
     });
 })();

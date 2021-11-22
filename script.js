@@ -1,30 +1,12 @@
-// const lupa = document.querySelector(".zoom-img-cursor");
-// const board = document.querySelector(".zoom-img-block");
-// const zoomImg = document.querySelector(".zoom-img-overlay");
-
-// function setMousePosition(e) {
-//   const { clientX, clientY } = e;
-//   lupa.style.cssText = `left: ${clientX}px;top: ${clientY}px`;
-//   zoomImg.style.cssText = `background-position: ${clientX}, ${clientY}`;
-//   console.log(clientX, clientY);
-//   if (clientY > 400 || clientX > 400) {
-//     lupa.style.cssText = `display: none`;
-//   }
-// }
-
-// board.addEventListener("mousemove", setMousePosition);
-// board.removeEventListener('mousemove', setMousePosition);
 let IS_ON = false;
 
 document.querySelector('#img-2').addEventListener('mousedown', (e) => {
   e.preventDefault();
   IS_ON = true;
-  console.log(IS_ON);
 });
 
 document.querySelector('#img-2').addEventListener('mouseup', () => {
   IS_ON = false;
-  console.log(IS_ON);
 });
 
 let zoomer = function () {
